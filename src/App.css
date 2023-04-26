@@ -359,3 +359,20 @@ input[type="radio"]:checked:after {
 .selected {
   border-bottom: 4px solid var(--secondary) !important;
 }
+
+/* select */
+
+.select {
+  border: 2px solid var(--primary);
+  border-radius: .3rem;
+  background-color: var(--white);
+  font-size: 1.15rem;
+  padding: 3px 7px;
+  text-transform: capitalize;
+}
+
+.select:focus:hover:active:focus-visible,
+.select:focus:hover:active {
+  border: 2px solid var(--secondary);
+}
+
