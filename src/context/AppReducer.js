@@ -1,4 +1,7 @@
-export default (state, action) => {
+// Here is the reducer function, which has state and action as parameters
+
+export const AppReducer = (state, action) => {
+  // I have to use a switch or an if
   switch (action.type) {
     case "ADD_MOVIE_TO_WATCHLIST":
       return {

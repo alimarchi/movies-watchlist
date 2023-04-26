@@ -1,7 +1,7 @@
 import { createContext, useReducer, useEffect } from "react";
-import AppReducer from "./AppReducer";
+import { AppReducer } from "./AppReducer";
 
-// initial state
+// define an initial state as a constant
 const initialState = {
   watchlist: localStorage.getItem("watchlist")
     ? JSON.parse(localStorage.getItem("watchlist"))
@@ -42,7 +42,7 @@ export const GlobalProvider = (props) => {
 
   const removeFromWatched = (id) => {
     dispatch({ type: "REMOVE_FROM_WATCHED", payload: id });
-  }
+  };
 
   return (
     <GlobalContext.Provider

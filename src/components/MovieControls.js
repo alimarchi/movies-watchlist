@@ -1,15 +1,35 @@
 import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faXmark, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faXmark,
+  faEyeSlash,
+  faList,
+} from "@fortawesome/free-solid-svg-icons";
 
 export const MovieControls = ({ movie, type }) => {
   const {
+    watched,
+    watchlist,
     removeMovieFromWatchlist,
     addMovieToWatched,
     moveToWatchlist,
     removeFromWatched,
+    addMovieToWatchlist,
   } = useContext(GlobalContext);
+
+  let storedMovie = watchlist.find((obj) => obj.id === movie.id);
+  let storedMovieWatched = watched.find((obj) => obj.id === movie.id);
+
+  const watchlistDisabled = storedMovie
+    ? true
+    : storedMovieWatched
+    ? true
+    : false;
+
+  const watchedDisabled = storedMovieWatched ? true : false;
+
   return (
     <div className="inner-card-controls">
       {type === "watchlist" && (
@@ -36,6 +56,23 @@ export const MovieControls = ({ movie, type }) => {
               size="lg"
               onClick={() => removeFromWatched(movie.id)}
             />
+          </button>
+        </>
+      )}
+      {type === "trending" && (
+        <>
+          <button className="ctrl-btn" onClick={() => addMovieToWatchlist(movie)} disabled={watchlistDisabled}>
+            <FontAwesomeIcon
+              icon={faList}
+              size="lg"
+            />
+          </button>
+          <button
+            className="ctrl-btn"
+            onClick={() => addMovieToWatched(movie)}
+            disabled={watchedDisabled}
+          >
+            <FontAwesomeIcon icon={faEye} size="lg" />
           </button>
         </>
       )}

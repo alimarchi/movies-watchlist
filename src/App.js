@@ -5,6 +5,7 @@ import { Watchlist } from "./components/Watchlist";
 import { Watched } from "./components/Watched";
 import { Add } from "./components/Add";
 import { GlobalProvider } from "./context/GlobalState";
+import { Trending } from "./components/Trending";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <GlobalProvider>
         <Header />
         <Routes>
-          <Route path="/" element={<Watchlist />} />
+          <Route path="/" element={<Trending />} />
+          <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/watched" element={<Watched />} />
           <Route path="/add" element={<Add />} />
         </Routes>

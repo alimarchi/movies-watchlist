@@ -134,6 +134,10 @@ header .nav-links li:last-child {
   font-size: 1.25rem;
 }
 
+.radiobutton-container {
+  margin-top: 10px;
+}
+
 .results {
   padding: 0;
   margin: 0;
@@ -182,6 +186,40 @@ header .nav-links li:last-child {
 
 .result-card .controls button {
   margin-right: 10px;
+}
+
+/* Radiobutton */
+.radio-label {
+  margin-right: 10px;
+  font-size: 1.15rem;
+}
+
+input[type="radio"]:after {
+  width: 18px;
+  height: 18px;
+  border-radius: 18px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type="radio"]:checked:after {
+  width: 18px;
+  height: 18px;
+  border-radius: 18px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: var(--secondary);
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
 }
 
 /* Movie Page */
@@ -284,8 +322,40 @@ header .nav-links li:last-child {
   cursor: pointer;
 }
 
+.ctrl-btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .movie-page .no-movies {
   color: #c4c4c4;
   font-size: 3rem;
   text-align: center;
+}
+
+/* Trending page */
+
+.trend-options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+.trend-options li {
+  list-style-type: none;
+  font-size: 1.25rem;
+  margin-right: 15px;
+  border-bottom: 4px solid transparent;
+  cursor: pointer;
+}
+
+.trend-options li:hover {
+  font-weight: bold;
+}
+
+.selected {
+  border-bottom: 4px solid var(--secondary) !important;
 }

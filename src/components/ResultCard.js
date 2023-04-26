@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
-export const ResultCard = ({ movie }) => {
+export const ResultCard = ({ movie, search }) => {
   const { addMovieToWatchlist, watchlist, watched, addMovieToWatched } =
     useContext(GlobalContext);
 
@@ -30,9 +30,15 @@ export const ResultCard = ({ movie }) => {
       </div>
       <div className="info">
         <div className="header">
-          <h3 className="title">{movie.title}</h3>
+          <h3 className="title">
+            {search === "movie" ? movie.title : movie.name}
+          </h3>
           <h4 className="release-date">
-            {movie.release_date ? movie.release_date.substring(0, 4) : "-"}
+            {movie.release_date || movie.first_air_date
+              ? movie.release_date
+                ? movie.release_date.substring(0, 4)
+                : movie.first_air_date.substring(0, 4)
+              : "-"}
           </h4>
         </div>
         <div className="controls">

@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import { MovieCard } from "./MovieCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTv } from "@fortawesome/free-solid-svg-icons";
 
 export const Watched = () => {
   const { watched } = useContext(GlobalContext);
@@ -9,10 +11,10 @@ export const Watched = () => {
     <div className="movie-page">
       <div className="container">
         <div className="header">
-          <h1 className="heading">Watched Movies</h1>
+          <h1 className="heading"><FontAwesomeIcon icon={faTv} /> Watched Movies and TV shows</h1>
 
           <span className="count-pill">
-            {watched.length} {watched.length === 1 ? "Movie" : "Movies"}
+            {watched.length} {watched.length === 1 ? "Item" : "Items"}
           </span>
         </div>
 
