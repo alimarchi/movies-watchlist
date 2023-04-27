@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { ResultCard } from "./ResultCard";
 import { RadioButton } from "./RadioButton";
+import debounce from "just-debounce-it";
+import { getMoviesResults, getTvshowsResults } from "../services/getMovies";
 
 export const Add = () => {
   const [query, setQuery] = useState("");
@@ -16,36 +18,33 @@ export const Add = () => {
     setSearch("tvshows");
   };
 
+  const debouncedGetMovies = useCallback(
+    debounce((value) => {
+      getMoviesResults(value).then((result) => {
+        setResults(result);
+      });
+    }, 500),
+    []
+  );
+
+  const debounceGetTvshows = useCallback(
+    debounce((value) => {
+      getTvshowsResults(value).then((result) => {
+        setResults(result);
+      });
+    }, 500),
+    []
+  );
+
   const onChange = (event) => {
     event.preventDefault();
 
     setQuery(event.target.value);
 
     if (search === "movies") {
-      fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${event.target.value}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          if (!data.errors) {
-            setResults(data.results);
-          } else {
-            setResults([]);
-          }
-        });
+      debouncedGetMovies(event.target.value);
     } else if (search === "tvshows") {
-      fetch(
-        `https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${event.target.value}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          if (!data.errors) {
-            setResults(data.results);
-            console.log(data.results)
-          } else {
-            setResults([]);
-          }
-        });
+      debounceGetTvshows(event.target.value);
     }
   };
 
@@ -56,7 +55,11 @@ export const Add = () => {
           <div className="input-wrapper">
             <input
               type="text"
-              placeholder={search === "movies" ? "Search for a movie" : "Search for a tv show"}
+              placeholder={
+                search === "movies"
+                  ? "Search for a movie"
+                  : "Search for a tv show"
+              }
               value={query}
               onChange={onChange}
             />
