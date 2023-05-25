@@ -31,7 +31,7 @@ export const ResultCard = ({ movie, search }) => {
       <div className="info">
         <div className="header">
           <h3 className="title">
-            {search === "movie" ? movie.title : movie.name}
+            {search === "movies" ? movie.title : movie.name}
           </h3>
           <h4 className="release-date">
             {movie.release_date || movie.first_air_date
