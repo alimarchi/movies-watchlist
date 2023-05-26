@@ -31,7 +31,7 @@ export const Watched = () => {
       default:
         setFilteredWatched(watched);
     }
-  }, [selectedValue]);
+  }, [selectedValue, watched]);
 
 
   return (

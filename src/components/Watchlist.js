@@ -33,7 +33,7 @@ export const Watchlist = () => {
       default:
         setFilteredWatchlist(watchlist);
     }
-  }, [selectedValue]);
+  }, [selectedValue, watchlist]);
 
   return (
     <div className="movie-page">
