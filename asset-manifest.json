@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/movies-watchlist/static/css/main.8dc27ebe.css",
+    "main.js": "/movies-watchlist/static/js/main.8dd9afdb.js",
+    "index.html": "/movies-watchlist/index.html",
+    "main.8dc27ebe.css.map": "/movies-watchlist/static/css/main.8dc27ebe.css.map",
+    "main.8dd9afdb.js.map": "/movies-watchlist/static/js/main.8dd9afdb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8dc27ebe.css",
+    "static/js/main.8dd9afdb.js"
+  ]
+}
