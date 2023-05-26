@@ -4,7 +4,7 @@
 
 This application was built with React and JavaScript and utilizes the [TMDB API](https://www.themoviedb.org/documentation/api) to allow users to browse trending movies and TV shows, search for specific titles, and add them to their watchlist or the list of watched movies. While the project was originally created by [Matt The Dev](https://github.com/MattDobsonWeb/movie-watchlist-react), I have customized it to create my own personal version of the project, which includes new features and improvements.
 
-App is live [here](alimarchi.github.io/movies-watchlist/), check it out!
+App is live [here](https://alimarchi.github.io/movies-watchlist/), check it out!
 
 #### Features
 
