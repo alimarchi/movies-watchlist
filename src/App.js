@@ -13,7 +13,7 @@ function App() {
       <GlobalProvider>
         <Header />
         <Routes>
-          <Route path="/" element={<Trending />} />
+          <Route path="/movies-watchlist" element={<Trending />} />
           <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/watched" element={<Watched />} />
           <Route path="/add" element={<Add />} />
